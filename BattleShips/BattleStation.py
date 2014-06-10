@@ -21,6 +21,7 @@ player_shots = []
 size_of_grid = int(raw_input("What size of grid would you want:"))
 for rows in range(size_of_grid):
     board.append(["O"] * size_of_grid)
+    player_shots.append(["O"] * size_of_grid)
 print "Let's play Battleship!"
 print_board(board)
 number_of_ships = int(raw_input("Enter number of ships: "))
@@ -46,6 +47,8 @@ for turn in xrange(number_of_shots):
     else:
         print "You missed my battleship!"
         board[guess_row][guess_col] = "-"
-    print "Turns remaining", number_of_shots - turn
-    print_board(board)
+        player_shots[guess_row][guess_col] = '-'
+    print_board(player_shots)
+    print "Turns remaining", number_of_shots - turn - 1
+
 print "Game Over"
